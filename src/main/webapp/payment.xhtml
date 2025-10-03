@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      >
+      
+<h:head>
+    <title>payments</title>
+    <h:outputStylesheet library="css" name="messages.css" />
+    <h:outputStylesheet library="css" name="cart.css" />
+    <h:outputStylesheet library="css" name="header.css" />
+</h:head>
+
+<h:body>
+
+    <f:metadata>
+	    <f:event type="preRenderView" listener="#{loginBean.redirectIfNotLoggedIn}" />
+	</f:metadata>
+      
+
+	<ui:include src="/WEB-INF/templates/header.xhtml" />
+
+    <f:view>
+        <h:panelGroup rendered="#{loginBean.loggedIn}">
+            <h:form styleClass="cart-container">
+
+                <div class="cart-items">
+                    <ui:repeat value="#{cartBean.cartItems}" var="item">
+                    	<h:panelGroup rendered="#{not item.product.deleted}">
+	                        <div class="cart-item">
+	                        	<h:graphicImage value="#{item.product.image}" width="30" class="product-image"/>
+	                            <div class="item-details">
+	                                <p><strong>#{item.product.name}</strong><br/></p>
+	                                <p>כמות: #{item.quantity}</p>
+	                                <p>x</p>
+	                                <p>#{item.product.price}₪</p>
+	                                
+	                                <div class="actions">
+		                                <p><span class="totalprice">סכ"ה:</span></p>
+		                                <p><strong>#{item.product.price * item.quantity}₪</strong></p>
+		                                <h:commandButton class="decreasebtn" value="-" action="#{cartBean.decreaseQuantity(item)}" />
+		                                <h:commandButton class="increasebtn" value="+" action="#{cartBean.increaseQuantity(item)}" />
+		                                <h:commandButton class="removebtn" value="x" action="#{cartBean.remove(item)}" />
+	                                </div>
+	                            </div>
+	                        </div>
+                        </h:panelGroup>
+                    </ui:repeat>
+                </div>
+
+                <div class="cart-summary">
+                    <h2>סיכום הזמנה</h2>
+
+                    <h:outputLabel value="שיטת תשלום:" />
+                    <h:selectOneMenu value="#{cartBean.paymentMethod}">
+                        <f:selectItem itemLabel="מזומן" itemValue="cash"/>
+                    </h:selectOneMenu>
+					<br/>
+                    <h:outputLabel value="פרטי תשלום:" />
+                    <h:outputText value="סך הכל לתשלום: #{cartBean.totalPrice} ₪" styleClass="total-price"/>
+
+					<br/>
+                    <h:commandButton value="בצע תשלום" action="#{cartBean.checkout}" styleClass="checkout-button"/>
+                </div>
+
+            </h:form>
+        </h:panelGroup>
+    </f:view>
+</h:body>
+</html>

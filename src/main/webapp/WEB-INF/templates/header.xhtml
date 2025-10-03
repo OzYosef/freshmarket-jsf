@@ -1,0 +1,70 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/html"
+      xmlns:a = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:fn="http://java.sun.com/jsp/facelets"
+      xmlns:ui="jakarta.faces.facelets">
+      
+      
+
+	<h:panelGroup rendered="#{loginBean.loggedIn}">
+		<div class="auth-header">
+			<div class="logo" >
+				<h:link outcome="index.xhtml">
+					<h:graphicImage library="images" name="freshMarket.png" width="200px"/>
+				</h:link>
+			</div>
+			
+			<div class="auth-actions">
+			<!-- 
+				<h:form>
+                    <h:commandLink action="#{navigationBean.gotoCart}" styleClass="cart-link" >
+               			<i class="fa fa-shopping-cart fa-lg"></i>
+            		</h:commandLink>
+           		</h:form>
+           		-->
+           		
+           		<h:link outcome="payment.xhtml" styleClass="cart-link" >
+               			<i class="fa fa-shopping-cart fa-lg"></i>
+            		</h:link >
+           		
+				<span class="welcome-message">
+	                שלום  #{loginBean.user.firstName}!
+	            </span>
+            
+			    <h:form>
+			        <h:commandButton value="התנתק" action="#{loginBean.logout}" styleClass="logout-button" />
+			    </h:form>
+           
+		    </div>
+	    </div>
+	</h:panelGroup>
+	
+	<h:panelGroup rendered="#{!loginBean.loggedIn}">
+		<div class="auth-header">
+		
+			<div class="logo" >
+				<h:link outcome="index.xhtml">
+					<h:graphicImage library="images" name="freshMarket.png" width="200px"/>
+				</h:link>
+			</div>
+			
+			<div class="auth-buttons">
+				<h:link value="התחבר" outcome="login.xhtml" styleClass="auth-button" >
+					<i class="fa fa-sign-in-alt"></i>
+				</h:link>
+				
+				<h:link value="הרשם" outcome="register.xhtml" styleClass="auth-button" >
+					<i class="fa fa-user-plus"></i>
+				</h:link>
+			</div>
+			
+		</div>
+	</h:panelGroup>
+		
+	
+	<ui:include src="/WEB-INF/templates/messages.xhtml"/>
+	
+</ui:composition>

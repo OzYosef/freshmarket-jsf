@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+.messages-container {
+	direction: rtl;
+	margin: 30px auto;
+	width: 50%;
+	max-width: 90%;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+  
+  
+.message-block {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 8px;
+	padding: 20px 20px;
+	font-weight: bold;
+	text-align: center;
+}
+  
+.message-error {
+    background-color: #f8d7da;
+    border-right-color: #dc3545;
+    color: #721c24;
+    padding: 2px;
+    height: 20px;
+}
+  
+.message-warn {
+    background-color: #fff3cd;
+    color: #856404;
+    border-right-color: #ffc107;
+}
+  
+.message-info {
+    background-color: #CFFFE2;
+    color: #2e7d32;
+    border-right-color: #17a2b8;
+    font-size: 24px;
+}
+
+.message-fatal {
+    background-color: #f5c6cb;
+    color: #721c24;
+    border-right-color: #dc3545;
+}
+
+.message-block:empty {
+    display: none;
+}

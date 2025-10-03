@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>רישום משתמש</title>
+</h:head>
+<h:body dir="rtl">
+    <h2>טופס רישום</h2>
+    
+    <h:form>
+        <h:panelGrid columns="3">
+            <!-- שם משתמש -->
+            <h:outputLabel for="username" value="שם משתמש:" />
+            <h:inputText id="username" value="#{userBean.username}" required="true" 
+                         requiredMessage="נא להזין שם משתמש">
+                <f:validateLength minimum="4" maximum="20" />
+            </h:inputText>
+            <h:message for="username" style="color:red" />
+            
+            <!-- כתובת אימייל -->
+            <h:outputLabel for="email" value="אימייל:" />
+            <h:inputText id="email" value="#{userBean.email}" required="true"
+                         requiredMessage="נא להזין כתובת אימייל">
+                <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+            </h:inputText>
+            <h:message for="email" style="color:red" />
+            
+            <!-- סיסמה -->
+            <h:outputLabel for="password" value="סיסמה:" />
+            <h:inputSecret id="password" value="#{userBean.password}" required="true"
+                           requiredMessage="נא להזין סיסמה">
+                <f:validateLength minimum="6" />
+            </h:inputSecret>
+            <h:message for="password" style="color:red" />
+            
+            <!-- גיל -->
+            <h:outputLabel for="age" value="גיל:" />
+            <h:inputText id="age" value="#{userBean.age}" required="true"
+                         requiredMessage="נא להזין גיל">
+                <f:validateLongRange minimum="18" maximum="120" />
+            </h:inputText>
+            <h:message for="age" style="color:red" />
+            
+            <!-- מגדר -->
+            <h:outputLabel for="gender" value="מגדר:" />
+            <h:selectOneMenu id="gender" value="#{userBean.gender}">
+                <f:selectItem itemValue="male" itemLabel="זכר" />
+                <f:selectItem itemValue="female" itemLabel="נקבה" />
+                <f:selectItem itemValue="other" itemLabel="אחר" />
+            </h:selectOneMenu>
+            <h:outputText value="" /> <!-- תא ריק עבור הרשת -->
+            
+            <!-- תחביבים -->
+            <h:outputLabel value="תחביבים:" />
+            <h:selectManyCheckbox value="#{userBean.hobbies}">
+                <f:selectItem itemValue="sports" itemLabel="ספורט" />
+                <f:selectItem itemValue="reading" itemLabel="קריאה" />
+                <f:selectItem itemValue="music" itemLabel="מוזיקה" />
+                <f:selectItem itemValue="travel" itemLabel="טיולים" />
+            </h:selectManyCheckbox>
+            <h:outputText value="" /> <!-- תא ריק עבור הרשת -->
+        </h:panelGrid>
+        
+        <h:commandButton value="שלח" action="#{userBean.register}" />
+    </h:form>
+</h:body>
+</html>

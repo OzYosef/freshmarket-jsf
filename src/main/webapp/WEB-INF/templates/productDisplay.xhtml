@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+    <h:panelGroup rendered="#{not product.deleted}">
+    <div class="product-box">
+        <h:graphicImage value="#{product.image}" width="150"/>
+        <h2>#{product.name}</h2>
+        <span>#{product.description}</span>
+        <p>מחיר: ₪#{product.price}</p>
+
+        <h:form styleClass="quantity-form" rendered="#{loginBean.loggedIn}">
+            <h:commandButton class="decreaseval" value="-" action="#{cartBean.decreaseQuantity(product.barcode)}">
+                <f:ajax render="quantity totalPrice" />
+            </h:commandButton>
+
+            <h:outputText id="quantity" value="#{cartBean.getQuantityForProduct(product.barcode)}" styleClass="quantity" style="margin: 0 10px;" />
+
+            <h:commandButton class="increaseval" value="+" action="#{cartBean.increaseQuantity(product.barcode)}">
+                <f:ajax render="quantity totalPrice" />
+            </h:commandButton>
+        </h:form>
+	</div>
+    </h:panelGroup>
+</ui:composition>
+
+

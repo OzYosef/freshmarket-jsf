@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <title>הרשמה הושלמה</title>
+</h:head>
+<h:body dir="rtl">
+    <h2>הרשמה הושלמה בהצלחה!</h2>
+    
+    <h:panelGrid columns="2">
+        <h:outputText value="שם משתמש:" />
+        <h:outputText value="#{userBean.username}" />
+        
+        <h:outputText value="אימייל:" />
+        <h:outputText value="#{userBean.email}" />
+        
+        <h:outputText value="גיל:" />
+        <h:outputText value="#{userBean.age}" />
+        
+        <h:outputText value="מגדר:" />
+        <h:outputText value="#{userBean.genderInHebrew}" />
+        
+        <h:outputText value="תחביבים:" />
+        <h:outputText value="#{userBean.hobbiesAsString}" />
+    </h:panelGrid>
+    
+    <h:form>
+        <h:commandButton value="חזור לדף הרישום" action="registration?faces-redirect=true" />
+    </h:form>
+</h:body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/html"      
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      >
+      <!-- xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"  -->
+      
+<h:head>
+    <title>MarketPlace</title>
+</h:head>
+
+<h:body>
+	<ui:include src="/WEB-INF/templates/header.xhtml" />
+	
+ 
+	<ui:repeat value="#{productBean.products}" var="product">
+	    <ui:include src="/WEB-INF/templates/productDisplay.xhtml" />
+	</ui:repeat>
+ 
+
+</h:body>
+</html>

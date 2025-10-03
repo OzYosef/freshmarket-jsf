@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	  <JarScanner scanManifest="false">
+	    <JarScanFilter defaultPluggabilityScan="false" />
+	  </JarScanner>
+
+    <!--activate CDI in Tomcat -->
+    <Resource name="BeanManager" 
+              auth="Container"
+              type="jakarta.enterprise.inject.spi.BeanManager"
+              factory="org.jboss.weld.resources.ManagerObjectFactory"/>
+                    
+</Context>

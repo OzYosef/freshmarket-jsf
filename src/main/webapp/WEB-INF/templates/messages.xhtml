@@ -1,0 +1,22 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/html"
+      xmlns:a = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:fn="http://java.sun.com/jsp/facelets"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+
+    <div class="messages-container">
+        <h:messages globalOnly="false" layout="table" 
+                   styleClass="message-block"
+                   errorClass="message-error"
+                   warnClass="message-warn" 
+                   infoClass="message-info"
+                   fatalClass="message-fatal"
+                   rendered="#{facesContext.maximumSeverity != null}">
+        </h:messages>
+    </div>
+    
+</ui:composition>

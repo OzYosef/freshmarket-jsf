@@ -1,0 +1,208 @@
+@charset "UTF-8";
+
+body {
+    direction: rtl;
+}
+
+#productTable {
+	background-color: black;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table {
+    width: 100% !important;
+    border-collapse: collapse;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+th {
+    background-color: #f7f7f7;
+    border-color: #f7f7f7;
+    padding: 10px;
+    font-weight: 500;
+    border-bottom: 1px solid #ccc;
+    font-size: 20px;
+}
+
+th select {
+    background-color: #f7f7f7;
+    border-color: #f7f7f7;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    font-size: 18px;
+}
+
+td {
+    padding: 5px;
+    vertical-align: middle;
+    border-style: hidden;
+    border-top-color: #efefef;
+}
+
+tr {
+	line-height: 30px;
+}
+
+
+.col-name {
+    max-width: 100px;
+}
+
+input[type="text" i]{
+	text-align: center;
+	border: none;
+	font-size: 14px;
+}
+
+
+.category-select {
+    width: 100%;
+    padding: 8px 25px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: left 10px center;
+    background-size: 16px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.status-active {
+    background-color: #d4f9dc;
+    color: #0f9d58;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.status-inactive {
+    background-color: #ffe1e1;
+    color: #d93025;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-weight: 5old;
+}
+
+
+.btn-save {
+    background-color: #2a9df4;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+	text-decoration: none;
+	font-size: 18px;
+	gap: 8px;
+}
+
+
+.btn-reset {
+    background-color: #c836f4;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 12px;
+}
+
+
+.btn-del{
+    background-color: #FF0000;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 12px;
+}
+
+.btn-save:hover,
+.btn-reset:hover {
+    opacity: 0.85;
+}
+
+
+.admin-header {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: 20px;
+    flex-wrap: wrap;
+}
+
+.link-button {
+    background-color: transparent;
+    border: none;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.link-button:hover {
+    text-decoration: underline;
+}
+
+.new-product-btn {
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+}
+
+.new-product-btn:hover {
+    background-color: #45a049;
+}
+
+
+.categorys-link {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: flex-end;
+}
+
+.addCatForm {
+    flex-direction: column;
+    direction: rtl;
+}
+
+.addCatForm input[type="text" i]{
+	
+}
+
+.inactiveCat{
+	background-color: #ffe3e1;
+}
+
+.newCatField{
+	width: 150px;
+	padding: 2px;
+	margin: 10px;
+	border: solid 1px #333 !important;
+	border-radius: 8%;
+}
+
+.new-category-btn{
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 18px !important;
+    letter-spacing: 0.1em;
+}
+
+.new-category-btn:hover {
+    background-color: #45a049;
+}
+
